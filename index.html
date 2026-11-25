@@ -96,7 +96,6 @@
         </div>
       </div>
     </section>
-
     <!-- ============================ WHY APACE =========================== -->
     <section id="why" class="section">
       <div class="container">
@@ -104,23 +103,24 @@
         <p class="section-sub">
           Apace loads buildplates as on-demand dimensions on a persistent server — 3471% faster than booting a full server instance per buildplate.
         </p>
-        <div class="chart" role="img" aria-label="Buildplate load speed comparison: Apace 3571% (3471% faster), Other Projects 100% (baseline)">
+        <div class="chart" role="img" aria-label="Buildplate load time comparison: Apace 5 seconds, Other Projects 3 minutes">
           <div class="bar-row top">
             <span class="bar-label">Apace</span>
-            <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
-            <span class="bar-count">3471% faster</span>
+            <div class="bar-track"><div class="bar-fill" style="width:2.8%"></div></div>
+            <span class="bar-count">5 s</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">Other Projects</span>
-            <div class="bar-track"><div class="bar-fill alt" style="width:2.8%"></div></div>
-            <span class="bar-count">1&times; (baseline)</span>
+            <div class="bar-track"><div class="bar-fill alt" style="width:100%"></div></div>
+            <span class="bar-count">3 min</span>
           </div>
         </div>
         <p class="small-note">
-          Wait time reduced by 97.2% (~1&nbsp;s dynamic dimension vs. waiting for a full server/JVM boot). Measured against v0.0.3 (Solace-derived architecture).
+          Wait time reduced by 97.2% (5&nbsp;s vs. 3&nbsp;min full server/JVM boot). Measured on Raspberry Pi.
         </p>
       </div>
     </section>
+
 
     <!-- ============================= PANEL ============================== -->
     <section id="panel" class="section">
