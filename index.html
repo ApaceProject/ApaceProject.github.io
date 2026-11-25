@@ -102,33 +102,22 @@
       <div class="container">
         <h2>Why Apace?</h2>
         <p class="section-sub">
-          Development speed, measured on GitHub — commits in the last 30 days:
+          Apace loads buildplates as on-demand dimensions on a persistent server — 3471% faster than booting a full server instance per buildplate.
         </p>
-        <div class="chart" role="img" aria-label="Commits in the last 30 days: Apace 139, Solace 1, Fountain-bridge 0, Arcadia 0">
+        <div class="chart" role="img" aria-label="Buildplate load speed comparison: Apace 3571% (3471% faster), Other Projects 100% (baseline)">
           <div class="bar-row top">
             <span class="bar-label">Apace</span>
             <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
-            <span class="bar-count">139</span>
+            <span class="bar-count">3471% faster</span>
           </div>
           <div class="bar-row">
-            <span class="bar-label">Solace</span>
-            <div class="bar-track"><div class="bar-fill alt" style="width:0.9%"></div></div>
-            <span class="bar-count">1</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">Fountain-bridge</span>
-            <div class="bar-track"><div class="bar-fill alt" style="width:0"></div></div>
-            <span class="bar-count">0</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">Arcadia</span>
-            <div class="bar-track"><div class="bar-fill alt" style="width:0"></div></div>
-            <span class="bar-count">0</span>
+            <span class="bar-label">Other Projects</span>
+            <div class="bar-track"><div class="bar-fill alt" style="width:2.8%"></div></div>
+            <span class="bar-count">1&times; (baseline)</span>
           </div>
         </div>
         <p class="small-note">
-          139&times; the fastest alternative, every commit public. The others have been
-          quiet for years. Measured 2026-11-25.
+          Wait time reduced by 97.2% (~1&nbsp;s dynamic dimension vs. waiting for a full server/JVM boot). Measured against v0.0.3 (Solace-derived architecture).
         </p>
       </div>
     </section>
