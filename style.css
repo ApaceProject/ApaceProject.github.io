@@ -477,11 +477,64 @@ code {
     margin-top: 18px;
 }
 
-/* ---------- Why Apace ---------- */
-.why-intro {
-    color: var(--text-body);
+/* ---------- Why Apace: speed chart ---------- */
+.chart {
+    background: rgba(0, 0, 0, 0.35);
+    border: 3px solid var(--border);
+    box-shadow: var(--shadow-card);
+    padding: 22px 24px 18px;
+    display: grid;
+    gap: 12px;
     max-width: 760px;
-    margin-bottom: 26px;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 52px;
+    align-items: center;
+    gap: 12px;
+}
+
+.bar-label {
+    color: var(--lead);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.bar-row.top .bar-label {
+    color: var(--accent);
+    text-shadow: var(--glow);
+}
+
+.bar-track {
+    background: rgba(0, 0, 0, 0.45);
+    border: 2px solid var(--border);
+    height: 28px;
+    overflow: hidden;
+}
+
+.bar-row.top .bar-track { border-color: var(--border-accent); }
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-hover) 0 40%, var(--primary) 40% 100%);
+}
+
+.bar-fill.alt { background: #55555a; }
+
+.bar-count {
+    color: var(--accent);
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+@media (max-width: 620px) {
+    .bar-row { grid-template-columns: 104px 1fr 40px; gap: 8px; }
+    .bar-label { font-size: 0.7rem; }
+    .bar-track { height: 22px; }
+    .bar-count { font-size: 0.78rem; }
 }
 
 /* ---------- Get started: mobile app hero ---------- */
