@@ -297,12 +297,15 @@
         <a href="#tech-details">Technical details</a>
         <a href="#top">Back to top</a>
       </nav>
-      <div class="footer-legal">
-        <p>MIT Licensed &middot; &copy; <span id="year">2026</span> ApaceProject</p>
-        <p class="disclaimer">
-          A community project. Not affiliated with, endorsed by, or sponsored by Mojang Studios or Microsoft.
-          <em>Minecraft Earth&trade;</em> is a trademark of Microsoft Corporation. Players bring their own legally obtained copy of the game.
-        </p>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <p>MIT Licensed &middot; &copy; <span id="year">2026</span> ApaceProject</p>
+          <p class="disclaimer">
+            A community project. Not affiliated with, endorsed by, or sponsored by Mojang Studios or Microsoft.
+            <em>Minecraft Earth&trade;</em> is a trademark of Microsoft Corporation. Players bring their own legally obtained copy of the game.
+          </p>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="theme-toggle" type="button" aria-label="Toggle color theme">Theme: Auto</button>
       </div>
     </div>
   </footer>
@@ -379,6 +382,45 @@
       // Footer year
       var year = document.getElementById('year');
       if (year) year.textContent = String(new Date().getFullYear());
+      // Theme toggle (follows system by default, cycles auto -> light -> dark)
+      var themeBtn = document.getElementById('theme-toggle');
+      var root = document.documentElement;
+      var mediaQuery = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)');
+      function getEffectiveTheme(mode) {
+        if (mode === 'light' || mode === 'dark') return mode;
+        return mediaQuery && mediaQuery.matches ? 'light' : 'dark';
+      }
+      function applyTheme(mode) {
+        if (mode === 'light' || mode === 'dark') {
+          root.setAttribute('data-theme', mode);
+        } else {
+          root.removeAttribute('data-theme');
+        }
+        if (themeBtn) {
+          var effective = getEffectiveTheme(mode);
+          var label = mode === 'auto'
+            ? 'Theme: Auto (' + (effective === 'light' ? 'Light' : 'Dark') + ')'
+            : 'Theme: ' + (mode === 'light' ? 'Light' : 'Dark');
+          themeBtn.textContent = label;
+        }
+      }
+      var savedTheme = 'auto';
+      try { savedTheme = localStorage.getItem('apace-theme') || 'auto'; } catch (err) {}
+      applyTheme(savedTheme);
+      if (themeBtn) {
+        themeBtn.addEventListener('click', function () {
+          var order = ['auto', 'light', 'dark'];
+          var next = order[(order.indexOf(savedTheme) + 1) % order.length];
+          savedTheme = next;
+          try { localStorage.setItem('apace-theme', next); } catch (err) {}
+          applyTheme(next);
+        });
+      }
+      if (mediaQuery && mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', function () {
+          if (savedTheme === 'auto') applyTheme('auto');
+        });
+      }
     })();
   </script>
 </body>
