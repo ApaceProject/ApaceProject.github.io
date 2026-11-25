@@ -549,6 +549,36 @@ code {
     margin-top: 8px;
 }
 
+/* ---------- Panel screenshots ---------- */
+.shots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.shot {
+    margin: 0;
+    background: var(--surface);
+    border: 3px solid var(--border);
+    box-shadow: var(--shadow-card);
+    padding: 10px;
+}
+
+.shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    image-rendering: auto;
+}
+
+.shot figcaption {
+    color: var(--muted);
+    font-size: 0.75rem;
+    margin-top: 10px;
+}
+
 /* ---------- Discord CTA ---------- */
 .cta {
     background: rgba(0, 0, 0, 0.3);

@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apace — Minecraft Earth, restored. Private server + patcher</title>
-  <meta name="description" content="Apace is a really fast, community-driven replacement server for Minecraft Earth™ — with shared buildplate multiplayer, seasons, adventures, a full dressing room, and patched Android & iOS clients. Self-hosted in Docker or on your phone.">
+  <title>Apace — Play Minecraft Earth on your own server</title>
+  <meta name="description" content="Apace is a community-made replacement server + client patcher for Minecraft Earth™. Mojang shut the game's official servers down in June 2021 — host your own in Docker, on a Raspberry Pi or an Android phone, and patch the original Android/iOS app to connect to it.">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ApaceProject/Apace/main/images/Apace_Favicon.png">
-  <meta property="og:title" content="Apace — Minecraft Earth, restored.">
-  <meta property="og:description" content="Really fast replacement server for Minecraft Earth™ — multiplayer buildplates, seasons, adventures, dressing room. Self-hosted, with patched Android & iOS clients.">
+  <meta property="og:title" content="Apace — Play Minecraft Earth on your own server">
+  <meta property="og:description" content="Community-made replacement server + client patcher for Minecraft Earth™. Self-host the server in Docker, on a Raspberry Pi or your phone, and patch the original Android & iOS app to connect to it.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ApaceProject.github.io">
   <meta property="og:image" content="https://raw.githubusercontent.com/ApaceProject/Apace/main/images/Apace_Banner.png">
@@ -28,9 +28,10 @@
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links" id="navlinks">
+        <a href="#about">About</a>
         <a href="#features">Features</a>
-        <a href="#launcher">Launcher</a>
         <a href="#install">Install</a>
+        <a href="#panel">Panel</a>
         <a href="#discord">Discord</a>
         <a class="nav-github" href="https://github.com/ApaceProject/Apace" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
@@ -47,17 +48,17 @@
         <div class="hero-panel">
           <img class="hero-banner" src="https://raw.githubusercontent.com/ApaceProject/Apace/main/images/Apace_Banner.png"
                alt="Apace banner artwork" width="2048" height="638">
-          <h1>Minecraft Earth&trade;, <span class="glow">restored.</span></h1>
+          <h1>Play Minecraft Earth&trade; <span class="glow">again.</span></h1>
           <p class="lead">
-            Apace is a really fast, community-driven replacement server for Minecraft Earth&trade; —
-            based on <a href="https://github.com/Earth-Restored/Solace" target="_blank" rel="noopener">Solace</a>
-            with additional features and fixes. Host your own server with shared buildplate
-            multiplayer, seasons, adventures and a full dressing room — and play again on patched
-            Android and iOS clients.
+            Mojang switched the game's official servers off in June 2021, and the app on your
+            phone can no longer reach anything. Apace is a community-made stand-in: a server you
+            host yourself — in Docker, on a Raspberry Pi, or right on an Android phone with the
+            launcher — plus a patcher that rewires the original Android and iOS app to connect to
+            <strong>your</strong> server instead.
           </p>
           <ul class="hero-chips" aria-label="Highlights">
             <li>Shared buildplate multiplayer</li>
-            <li>Seasons &amp; adventures</li>
+            <li>Tappables &amp; daily rewards</li>
             <li>Dressing room &amp; cosmetics</li>
             <li>Android + iOS patcher</li>
             <li>Self-hosted &amp; open source</li>
@@ -75,16 +76,45 @@
         <div class="stats">
           <div class="stat">
             <span class="stat-value">~1 s</span>
-            <span class="stat-label">Buildplate creation — an on-demand dimension, not a full server boot</span>
+            <span class="stat-label">To register a buildplate as a new dimension — no extra server boot</span>
           </div>
           <div class="stat">
             <span class="stat-value">3471% faster</span>
-            <span class="stat-label">Buildplate load vs. the previous architecture — 97.2% less waiting</span>
+            <span class="stat-label">Faster buildplate loading than the old architecture — 97.2% less waiting</span>
           </div>
           <div class="stat">
             <span class="stat-value">~92% less RAM</span>
-            <span class="stat-label">15 concurrent buildplates: ~1.9&nbsp;GB instead of 24&nbsp;GB</span>
+            <span class="stat-label">Fifteen buildplates at once: ~1.9&nbsp;GB instead of 24&nbsp;GB</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= ABOUT ============================== -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>What is this?</h2>
+        <p class="section-sub">
+          Minecraft Earth&trade; was Mojang's augmented-reality game — buildplates on your table,
+          tappables out in your neighborhood. Its official servers were switched off in June
+          2021, so the app you may still have installed can no longer connect to anything. Apace
+          is the community's answer, and it comes in two halves that work together:
+        </p>
+        <div class="grid features">
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M1 1h14v4H1V1zm2 1.5h2v1H3v-1zM1 6h14v4H1V6zm2 1.5h2v1H3v-1zM1 11h14v4H1v-4zm2 1.5h2v1H3v-1z"/></svg>
+            </div>
+            <h3>A server you host</h3>
+            <p>It stands in for everything Mojang's servers used to do: buildplates, the tappables map, daily rewards, crafting, and a dressing room that mirrors the original marketplace catalog. Run it in Docker, on a Raspberry Pi, or even on an Android phone with the mobile launcher.</p>
+          </article>
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 1h2v6h3l-4 5-4-5h3zM1 13h14v2H1z"/></svg>
+            </div>
+            <h3>A patcher for the app you have</h3>
+            <p>The built-in patcher modifies your original Android or iOS copy of the game so that, instead of knocking on Mojang's dead servers, it connects to yours. Sign in, and you're playing again.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -94,9 +124,8 @@
       <div class="container">
         <h2>Features</h2>
         <p class="section-sub">
-          Everything below is what the server ships today — maps, buildplates, multiplayer,
-          challenges, rewards, adventures, crafting and the dressing room are working.
-          Remaining work is tracked openly in the repo.
+          Everything below works today. If a piece of the game isn't ready yet, it isn't on this
+          page — what's still in progress is tracked openly in the repo.
         </p>
         <div class="grid features">
 
@@ -105,23 +134,23 @@
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M1 1h14v4H1V1zm2 1.5h2v1H3v-1zM1 6h14v4H1V6zm2 1.5h2v1H3v-1zM1 11h14v4H1v-4zm2 1.5h2v1H3v-1z"/></svg>
             </div>
             <h3>Really fast server</h3>
-            <p>One persistent Fabric server hosts every buildplate as an on-demand dimension on a single shared Bedrock port. New buildplate dimensions are created in about a second.</p>
+            <p>One long-running Fabric server hosts every buildplate as an on-demand dimension on a single shared Bedrock port — a new plate is ready in about a second, with no second server boot.</p>
           </article>
 
           <article class="card">
             <div class="icon-box">
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2 2h4v3H2zM1 6h6v4H1zM10 2h4v3h-4zM9 6h6v4H9z"/></svg>
             </div>
-            <h3>Shared buildplate multiplayer <span class="badge badge-info">dev</span></h3>
-            <p>Join a friend's buildplate with QR join codes and see other players in AR as floating nametags. The patched client decodes QR codes with embedded ZXing — no Google services needed.</p>
+            <h3>Shared buildplate multiplayer</h3>
+            <p>Share a buildplate with friends: every session gets a QR join code, and guests show up in AR as floating nametags. The patched client decodes those codes by itself — no Google services needed.</p>
           </article>
 
           <article class="card">
             <div class="icon-box">
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M8 1l7 7-7 7-7-7 7-7zm0 4.5L6.5 7 8 8.5 9.5 7 8 5.5z"/></svg>
             </div>
-            <h3>Adventures &amp; seasons</h3>
-            <p>Adventures with instance lifecycle, seasonal content, daily login rewards with streak tracking, tappables, boosts and the token claim/redeem system — the live game loop, served by your own server.</p>
+            <h3>Tappables &amp; daily rewards</h3>
+            <p>The everyday loop, served by your server: tappables out on the map, daily login rewards with streak tracking, boosts, and a token claim/redeem system.</p>
           </article>
 
           <article class="card">
@@ -129,7 +158,7 @@
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M1 3h14v11H1V3zm3 2v2h2V5H4zm4 0v2h2V5H8zm4 0v2h2V5h-2z"/></svg>
             </div>
             <h3>Buildplates</h3>
-            <p>Build and share buildplates with previews, imports and per-player worlds — no JVM-per-plate waiting, no "Preparing spawn area".</p>
+            <p>Build and share buildplates with previews and imports — plates spin up as on-demand dimensions instead of waiting on a full world boot.</p>
           </article>
 
           <article class="card">
@@ -137,7 +166,7 @@
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2 2h12v4H2zM7 6h2v9H7z"/></svg>
             </div>
             <h3>Crafting &amp; inventory</h3>
-            <p>Crafting, smelting, inventory, the journal and activity log — plus Boost Minis with NFC minifig activation and Mattel tag decoding.</p>
+            <p>Crafting, smelting, inventory, the journal and the activity log all work — and Boost Minis activate over NFC with Mattel tag decoding.</p>
           </article>
 
           <article class="card">
@@ -145,7 +174,7 @@
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon fill="currentColor" points="6,1 10,1 13,4 11,6 11,15 5,15 5,6 3,4"/></svg>
             </div>
             <h3>Dressing room &amp; cosmetics</h3>
-            <p>The panel mirrors the still-live Minecraft marketplace: pack-gated marketplace pieces, skin packs and custom cosmetics — enforced across the catalog, published items, profiles and piece binaries.</p>
+            <p>The panel mirrors the still-live Minecraft marketplace, so players get character creator pieces, skin packs and custom cosmetics — and you choose which bundles they can see.</p>
           </article>
 
           <article class="card">
@@ -153,7 +182,7 @@
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M1 1h14v14H1V1zm2 3h4v3H3V4zm6 0h4v3H9V4zM3 9h10v4H3V9z"/></svg>
             </div>
             <h3>Web panel</h3>
-            <p>A built-in launcher panel to configure, manage and monitor everything: players, files, persona packs, linked accounts, Fabric logs and one-click self-updates.</p>
+            <p>Configure, manage and monitor the whole stack from the browser: players, files, cosmetics, the patcher, live logs and one-click self-updates.</p>
           </article>
 
           <article class="card">
@@ -161,7 +190,7 @@
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M8 1l7 4.2v5.6L8 15 1 10.8V5.2L8 1zm0 3L4 6.4v3.2L8 12l4-2.4V6.4L8 4z"/></svg>
             </div>
             <h3>Self-hosted anywhere</h3>
-            <p>One-command installer for Linux, macOS and Windows; host straight from an Android phone via Termux. Runs in Docker with persistent volumes, and plays away from home over Tailscale — no router ports needed.</p>
+            <p>A one-command installer for Linux, macOS and Windows, Docker with persistent volumes, or Termux straight on an Android phone — and Tailscale carries play away from home without opening router ports.</p>
           </article>
 
         </div>
@@ -173,9 +202,9 @@
       <div class="container">
         <h2>Get started</h2>
         <p class="section-sub">
-          Apace is self-hosted. The fastest way to run it is Docker — the installer installs
-          Docker if it's missing, writes <code>docker-compose.yml</code> and a default config,
-          creates the persistent volumes and starts the container.
+          Apace runs on hardware you control. The quickest route is Docker — if Docker isn't
+          installed yet, the installer sets it up, writes <code>docker-compose.yml</code> and a
+          default config, creates the persistent volumes and starts the container.
         </p>
         <div class="install-grid">
 
@@ -195,9 +224,9 @@
               <pre><code>iwr https://raw.githubusercontent.com/ApaceProject/Apace/main/install.ps1 | iex</code></pre>
             </div>
             <p class="small-note">
-              Android (Termux), no Docker needed:
+              On an Android phone via Termux — no Docker needed:
               <code>curl -sSL https://raw.githubusercontent.com/ApaceProject/Apace/main/install-termux.sh | bash</code>
-              — full manual instructions live in the repo's
+              — the full manual lives in the repo's
               <a href="https://github.com/ApaceProject/Apace/blob/main/Installation.md" target="_blank" rel="noopener">Installation.md</a>.
             </p>
           </div>
@@ -205,16 +234,16 @@
           <div class="install-steps">
             <h3 class="steps-title">First run</h3>
             <ol class="steps">
-              <li>Open the panel at <code>http://localhost:5000</code> and create an account — the first one becomes the admin.</li>
-              <li><strong>Server Options</strong> → set your PC's IP address.</li>
-              <li><strong>Server Status</strong> → click <strong>Start All</strong>.</li>
-              <li>Accept the Minecraft EULA when the yellow banner appears.</li>
+              <li>Open the panel at <code>http://localhost:5000</code> and sign up — the first account becomes the admin.</li>
+              <li>Under <strong>Server Options</strong>, set your machine's IP address.</li>
+              <li>Under <strong>Server Status</strong>, hit <strong>Start All</strong>.</li>
+              <li>Accept the Minecraft EULA when the banner shows up.</li>
             </ol>
             <p class="small-note">
-              Patch your game client in the panel's <strong>Patcher</strong> page, start Apace again later with
-              <code>run.sh</code> / <code>run.ps1</code> from <code>~/apace</code>, and keep it current with
+              Patch the game from the panel's <strong>Patcher</strong> page, bring the server back later with
+              <code>run.sh</code> / <code>run.ps1</code> from <code>~/apace</code>, and stay current with
               <a href="https://github.com/ApaceProject/Apace/blob/main/QUICKINSTALL.md" target="_blank" rel="noopener">the updater</a> —
-              data and configs are always preserved and backed up.
+              your data and configs are preserved and backed up.
             </p>
           </div>
 
@@ -227,8 +256,8 @@
       <div class="container">
         <h2>Launcher &amp; patcher</h2>
         <p class="section-sub">
-          Two companion pieces ship alongside the server: an Android launcher that runs the whole
-          stack on your phone, and a client patcher that rewires the game to your server.
+          Two companions ship alongside the server: an Android app that runs the entire stack on
+          your phone, and the patcher that points the game at it.
         </p>
         <div class="launcher-grid">
 
@@ -238,10 +267,9 @@
             </div>
             <h3>Apace Mobile Launcher <span class="badge">Android</span></h3>
             <p>
-              A separate Android app that runs the entire Apace stack on your phone — server,
-              panel and patcher — using PRoot, with no Gradle or root required. Every push to
-              <code>main</code> builds an APK in CI, and the app keeps itself current on the
-              <code>main</code> or <code>dev</code> channel.
+              A separate Android app that runs the whole Apace stack — server, panel and patcher —
+              on your phone via PRoot, with no root required. Fresh APKs come straight from CI,
+              and the app can keep itself up to date on its own.
             </p>
             <a class="btn btn-secondary" href="https://github.com/ApaceProject/Apace-Launcher" target="_blank" rel="noopener">
               ApaceProject/Apace-Launcher
@@ -252,20 +280,40 @@
             <div class="icon-box">
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 1h2v6h3l-4 5-4-5h3zM1 13h14v2H1z"/></svg>
             </div>
-            <h3>Client patcher <span class="badge badge-info">iOS sign-in in development</span></h3>
+            <h3>Client patcher</h3>
             <p>
-              Upload your legally obtained Minecraft Earth APK or IPA straight in the panel.
-              The patcher accepts only original files (hash-checked), redirects the client to
-              your server, embeds offline QR scanning, and writes the iOS IPA intact with the
-              XAL keychain entitlements — the output IPA still needs signing.
+              Hand it your legally obtained Minecraft Earth APK or IPA right in the panel — it
+              accepts only untouched originals (hash-checked). Auto, Simple and Advanced modes
+              cover everything from one-click patching to hands-on control, and a custom login
+              server is built in, so there's nothing extra to run.
             </p>
-            <figure class="screenshot">
-              <img src="https://raw.githubusercontent.com/ApaceProject/Apace/main/images/patcher-login-server-options.png"
-                   alt="Screenshot of the Apace panel after patching a client: sign-in and server options" width="419" height="322" loading="lazy">
-              <figcaption>After patching — sign-in works against your own server.</figcaption>
-            </figure>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= PANEL ============================== -->
+    <section id="panel" class="section">
+      <div class="container">
+        <h2>See the panel</h2>
+        <p class="section-sub">
+          Everything is driven from one browser dashboard — status, controls, cosmetics and the
+          patcher. These are real screens from the web panel.
+        </p>
+        <div class="shots">
+          <figure class="shot">
+            <img src="assets/panel-console.png" alt="Apace web panel console: system status, controls and live server logs" width="1426" height="1246" loading="lazy">
+            <figcaption>The console — system status and controls up top, live server logs streaming underneath.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/panel-marketplace.png" alt="Apace web panel marketplace manager for cosmetics and character creator bundles" width="1455" height="1248" loading="lazy">
+            <figcaption>The marketplace manager — pick which cosmetic bundles your players can find in the dressing room.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/panel-patcher.png" alt="Apace web panel patcher page for preparing Android and iOS game clients" width="1253" height="1090" loading="lazy">
+            <figcaption>The patcher — hand it an original APK or IPA and it rewires the game to your server.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -277,7 +325,8 @@
           <svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
           <h2>Join the community</h2>
           <p class="lead">
-            Questions, setup help, and development news — the Apace Discord is the place to be.
+            Questions, setup help, and news from the community — the Apace Discord is the place
+            to be.
           </p>
           <a class="btn btn-primary btn-lg" href="https://discord.gg/5K8HJukMSX" target="_blank" rel="noopener">discord.gg/5K8HJukMSX</a>
         </div>
@@ -292,7 +341,7 @@
         <img src="https://raw.githubusercontent.com/ApaceProject/Apace/main/images/Apace_Favicon_Compact.png" alt="" width="28" height="28">
         <div>
           <strong>Apace</strong>
-          <p>A community-driven Minecraft Earth&trade; restoration project — a private server + patcher, based on Solace.</p>
+          <p>A community-run server replacement + client patcher for Minecraft Earth&trade; — self-hosted, open source, built on <a href="https://github.com/Earth-Restored/Solace" target="_blank" rel="noopener">Solace</a>.</p>
         </div>
       </div>
       <nav class="footer-links" aria-label="Footer">

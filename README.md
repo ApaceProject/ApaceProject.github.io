@@ -1,14 +1,16 @@
 # ApaceProject.github.io
 
-> **Join the Discord: https://discord.gg/5K8HJukMSX** — questions, setup help, and development news.
+> **Join the Discord: https://discord.gg/5K8HJukMSX** — questions, setup help, and news from the community.
 
 This repo hosts the source of the **Apace landing page**, served at **https://ApaceProject.github.io**.
 
-[Apace](https://github.com/ApaceProject/Apace) is a really fast, community-driven replacement server for Minecraft Earth™ (based on [Solace](https://github.com/Earth-Restored/Solace)) with shared buildplate multiplayer, seasons, adventures, a full dressing room, and patched Android & iOS clients. This site is its static showcase: plain `index.html` + `style.css` (no build tooling, no frameworks), styled after the Apace launcher panel's dark Minecraft theme.
+[Apace](https://github.com/ApaceProject/Apace) is a community-made replacement server and client patcher for Minecraft Earth™, built on [Solace](https://github.com/Earth-Restored/Solace). Mojang switched the game's official servers off in June 2021, so the original app can no longer connect to anything — Apace lets you run your own server (in Docker, on a Raspberry Pi, or on an Android phone with the [mobile launcher](https://github.com/ApaceProject/Apace-Launcher)) and patch the original Android/iOS app to connect to it instead.
+
+This site is the project's static showcase: plain `index.html` + `style.css` (no build tooling, no frameworks), styled after the Apace launcher panel's dark Minecraft theme.
 
 ## Contributing to the site
 
-Edit `index.html` / `style.css` directly — everything is hand-written static files. Image and font assets are hot-linked from the [Apace repo](https://github.com/ApaceProject/Apace) via `raw.githubusercontent.com`, so there is nothing to build or sync.
+Edit `index.html` / `style.css` directly — everything is hand-written static files. Branding, fonts and the hero banner are hot-linked from the [Apace repo](https://github.com/ApaceProject/Apace) via `raw.githubusercontent.com`; the panel screenshots shown on the page are checked into `assets/`. There is nothing to build or sync.
 
 ## Links
 
