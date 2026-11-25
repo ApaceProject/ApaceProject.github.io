@@ -25,14 +25,21 @@
     font-display: swap;
 }
 
-/* ---------- Tokens ---------- */
+/* ---------- Tokens (Dark default) ---------- */
 :root {
     --bg: #141414;
     --surface: #1a1a1a;
     --surface-2: #2a2a2a;
+    --panel-tint: rgba(0, 0, 0, 0.35);
+    --overlay: rgba(0, 0, 0, 0.68);
+    --nav-bg: rgba(20, 20, 20, 0.92);
+    --nav-mobile-bg: rgba(20, 20, 20, 0.98);
+    --footer-bg: rgba(20, 20, 20, 0.95);
+    --bg-image: url('https://raw.githubusercontent.com/ApaceProject/Apace/main/src/Apace.LauncherUI/wwwroot/ApaceUI/Backgrounds/dark.png');
     --btn-2: #39393B;
     --btn-2-hover: #47484A;
     --btn-2-active: #2A2B2C;
+    --btn-2-text: #fff;
     --border: #3a3a3a;
     --border-accent: #4a5d23;
     --primary: #3B8526;
@@ -41,14 +48,100 @@
     --accent: #8bc34a;
     --accent-hover: #aed581;
     --accent-soft: #81c784;
+    --hero-glow-word: #c5e1a5;
     --text: #e0e0e0;
     --text-body: #d0d0d0;
     --muted: #9a9ab0;
     --lead: #b0b0b0;
+    --disclaimer: #707070;
+    --icon-box-bg: rgba(139, 195, 74, 0.08);
+    --code-head-bg: rgba(0, 0, 0, 0.2);
+    --track-bg: rgba(0, 0, 0, 0.45);
+    --chip-bg: rgba(0, 0, 0, 0.3);
+    --bar-alt: #55555a;
     --glow: 0 4px 12px rgba(139, 195, 74, 0.4);
     --shadow-card: 0 4px 0 #0a0a0a, 0 6px 16px rgba(0, 0, 0, 0.4);
     --shadow-hero: 0 6px 0 #1a3a0a, 0 0 50px rgba(139, 195, 74, 0.12);
     --font: 'Minecraft', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Light theme tokens ---------- */
+:root[data-theme="light"] {
+    --bg: #eef2e9;
+    --surface: #f7f9f4;
+    --surface-2: #e2e8da;
+    --panel-tint: rgba(255, 255, 255, 0.78);
+    --overlay: rgba(238, 242, 233, 0.68);
+    --nav-bg: rgba(247, 249, 244, 0.92);
+    --nav-mobile-bg: rgba(247, 249, 244, 0.98);
+    --footer-bg: rgba(242, 246, 237, 0.96);
+    --bg-image: url('https://raw.githubusercontent.com/ApaceProject/Apace/main/src/Apace.LauncherUI/wwwroot/ApaceUI/Backgrounds/light.png');
+    --btn-2: #dce2d5;
+    --btn-2-hover: #cdd6c3;
+    --btn-2-active: #bac6ae;
+    --btn-2-text: #1c2416;
+    --border: #b8c2ae;
+    --border-accent: #5e8229;
+    --primary: #3B8526;
+    --primary-hover: #4B9736;
+    --primary-active: #236212;
+    --accent: #2c6e18;
+    --accent-hover: #1d4d0e;
+    --accent-soft: #2e7319;
+    --hero-glow-word: #3b8526;
+    --text: #182012;
+    --text-body: #25301c;
+    --muted: #4b5743;
+    --lead: #36412e;
+    --disclaimer: #5c6854;
+    --icon-box-bg: rgba(59, 133, 38, 0.1);
+    --code-head-bg: rgba(0, 0, 0, 0.04);
+    --track-bg: rgba(0, 0, 0, 0.08);
+    --chip-bg: rgba(255, 255, 255, 0.75);
+    --bar-alt: #8f9986;
+    --glow: 0 2px 8px rgba(59, 133, 38, 0.22);
+    --shadow-card: 0 4px 0 #b8c2ae, 0 6px 16px rgba(24, 32, 18, 0.12);
+    --shadow-hero: 0 6px 0 #4a7822, 0 0 40px rgba(59, 133, 38, 0.14);
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+        --bg: #eef2e9;
+        --surface: #f7f9f4;
+        --surface-2: #e2e8da;
+        --panel-tint: rgba(255, 255, 255, 0.78);
+        --overlay: rgba(238, 242, 233, 0.68);
+        --nav-bg: rgba(247, 249, 244, 0.92);
+        --nav-mobile-bg: rgba(247, 249, 244, 0.98);
+        --footer-bg: rgba(242, 246, 237, 0.96);
+        --bg-image: url('https://raw.githubusercontent.com/ApaceProject/Apace/main/src/Apace.LauncherUI/wwwroot/ApaceUI/Backgrounds/light.png');
+        --btn-2: #dce2d5;
+        --btn-2-hover: #cdd6c3;
+        --btn-2-active: #bac6ae;
+        --btn-2-text: #1c2416;
+        --border: #b8c2ae;
+        --border-accent: #5e8229;
+        --primary: #3B8526;
+        --primary-hover: #4B9736;
+        --primary-active: #236212;
+        --accent: #2c6e18;
+        --accent-hover: #1d4d0e;
+        --accent-soft: #2e7319;
+        --hero-glow-word: #3b8526;
+        --text: #182012;
+        --text-body: #25301c;
+        --muted: #4b5743;
+        --lead: #36412e;
+        --disclaimer: #5c6854;
+        --icon-box-bg: rgba(59, 133, 38, 0.1);
+        --code-head-bg: rgba(0, 0, 0, 0.04);
+        --track-bg: rgba(0, 0, 0, 0.08);
+        --chip-bg: rgba(255, 255, 255, 0.75);
+        --bar-alt: #8f9986;
+        --glow: 0 2px 8px rgba(59, 133, 38, 0.22);
+        --shadow-card: 0 4px 0 #b8c2ae, 0 6px 16px rgba(24, 32, 18, 0.12);
+        --shadow-hero: 0 6px 0 #4a7822, 0 0 40px rgba(59, 133, 38, 0.14);
+    }
 }
 
 /* ---------- Base ---------- */
@@ -67,7 +160,7 @@ body {
     line-height: 1.65;
     color: var(--text);
     background: var(--bg);
-    background-image: url('https://raw.githubusercontent.com/ApaceProject/Apace/main/src/Apace.LauncherUI/wwwroot/ApaceUI/Backgrounds/dark.png');
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -80,7 +173,7 @@ body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.68);
+    background: var(--overlay);
     pointer-events: none;
     z-index: 0;
 }
@@ -134,7 +227,7 @@ code {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(20, 20, 20, 0.92);
+    background: var(--nav-bg);
     backdrop-filter: blur(4px);
     border-bottom: 3px solid var(--border);
 }
@@ -181,9 +274,9 @@ code {
     margin-left: 8px;
     border: 2px solid var(--border);
     background: var(--btn-2);
-    color: #fff;
+    color: var(--btn-2-text);
 }
-.nav-links a.nav-github:hover { background: var(--btn-2-hover); color: #fff; }
+.nav-links a.nav-github:hover { background: var(--btn-2-hover); color: var(--btn-2-text); }
 .nav-links a.nav-github svg { width: 16px; height: 16px; }
 
 .nav-toggle {
@@ -197,7 +290,7 @@ code {
     display: block;
     width: 22px;
     height: 3px;
-    background: rgba(139, 195, 74, 0.9);
+    background: var(--accent);
     margin: 4px 0;
 }
 
@@ -205,7 +298,7 @@ code {
 .hero { padding: 64px 0 8px; }
 
 .hero-panel {
-    background: rgba(0, 0, 0, 0.35);
+    background: var(--panel-tint);
     border: 3px solid var(--border-accent);
     box-shadow: var(--shadow-hero);
     padding: 48px 28px 44px;
@@ -226,7 +319,7 @@ code {
     margin-bottom: 14px;
 }
 
-.hero h1 .glow { color: #c5e1a5; }
+.hero h1 .glow { color: var(--hero-glow-word); }
 
 .hero .lead {
     color: var(--lead);
@@ -274,9 +367,9 @@ code {
 .btn-secondary {
     background: var(--btn-2);
     border-color: var(--btn-2-hover) var(--btn-2-active) var(--btn-2-active) var(--btn-2-hover);
-    color: #fff;
+    color: var(--btn-2-text);
 }
-.btn-secondary:hover { background: var(--btn-2-hover); color: #fff; }
+.btn-secondary:hover { background: var(--btn-2-hover); color: var(--btn-2-text); }
 .btn-secondary:active { background: var(--btn-2-active); border-color: var(--btn-2-active); transform: translateY(2px); }
 
 .btn-ghost {
@@ -349,7 +442,7 @@ code {
     height: 46px;
     display: grid;
     place-items: center;
-    background: rgba(139, 195, 74, 0.08);
+    background: var(--icon-box-bg);
     border: 2px solid var(--border-accent);
     margin-bottom: 14px;
 }
@@ -404,7 +497,7 @@ code {
     justify-content: space-between;
     gap: 12px;
     padding: 8px 12px;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--code-head-bg);
     border-bottom: 3px solid var(--border);
     color: var(--accent-soft);
     text-transform: uppercase;
@@ -479,7 +572,7 @@ code {
 
 /* ---------- Why Apace: speed chart ---------- */
 .chart {
-    background: rgba(0, 0, 0, 0.35);
+    background: var(--panel-tint);
     border: 3px solid var(--border);
     box-shadow: var(--shadow-card);
     padding: 22px 24px 18px;
@@ -509,7 +602,7 @@ code {
 }
 
 .bar-track {
-    background: rgba(0, 0, 0, 0.45);
+    background: var(--track-bg);
     border: 2px solid var(--border);
     height: 28px;
     overflow: hidden;
@@ -522,7 +615,7 @@ code {
     background: linear-gradient(180deg, var(--primary-hover) 0 40%, var(--primary) 40% 100%);
 }
 
-.bar-fill.alt { background: #55555a; }
+.bar-fill.alt { background: var(--bar-alt); }
 
 .bar-count {
     color: var(--accent);
@@ -543,7 +636,7 @@ code {
     grid-template-columns: minmax(280px, 420px) 1fr;
     gap: 30px;
     align-items: center;
-    background: rgba(0, 0, 0, 0.35);
+    background: var(--panel-tint);
     border: 3px solid var(--border-accent);
     box-shadow: var(--shadow-hero);
     padding: 30px;
@@ -602,7 +695,7 @@ code {
 }
 
 .chips li {
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--chip-bg);
     border: 2px solid var(--border);
     color: var(--muted);
     font-size: 0.76rem;
@@ -641,7 +734,7 @@ code {
 
 .tech-panel {
     margin-top: 22px;
-    background: rgba(0, 0, 0, 0.35);
+    background: var(--panel-tint);
     border: 3px solid var(--border);
     box-shadow: var(--shadow-card);
     padding: 26px 24px;
@@ -667,7 +760,7 @@ code {
 /* ---------- Footer ---------- */
 .footer {
     margin-top: 72px;
-    background: rgba(20, 20, 20, 0.95);
+    background: var(--footer-bg);
     border-top: 3px solid var(--border);
     padding: 30px 0 36px;
 }
@@ -716,7 +809,18 @@ code {
 }
 .footer-links a:hover { color: var(--accent); }
 
-.footer-legal { width: 100%; border-top: 3px solid var(--border); padding-top: 16px; }
+.footer-bottom {
+    width: 100%;
+    border-top: 3px solid var(--border);
+    padding-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.footer-legal { flex: 1 1 540px; }
 
 .footer-legal p {
     color: var(--muted);
@@ -725,7 +829,7 @@ code {
 }
 
 .footer-legal .disclaimer {
-    color: #707070;
+    color: var(--disclaimer);
     font-size: 0.72rem;
     max-width: 860px;
 }
@@ -742,7 +846,7 @@ code {
         right: 0;
         flex-direction: column;
         align-items: stretch;
-        background: rgba(20, 20, 20, 0.98);
+        background: var(--nav-mobile-bg);
         border-bottom: 3px solid var(--border);
         padding: 10px 20px 16px;
         gap: 2px;
