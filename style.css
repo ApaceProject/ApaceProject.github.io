@@ -265,11 +265,17 @@ code {
 .theme-btn:hover { background: #4B9736; border-image-source: url('assets/button-accent-hover.png'); }
 .theme-btn:active { background: #236212; border-width: 4px; border-image: url('assets/checkbox-checked-pressed.png') 4 / 4px stretch; margin-top: 4px; }
 
-/* Sun/moon label swap — exactly like the panel's dark-mode button */
+/* Sun/moon/auto label swap — like the panel's dark-mode button, plus the AUTO
+   state of the light -> dark -> auto cycle; .theme-auto wins over .dark so the
+   AUTO label shows even when auto currently renders the dark palette. */
 .dmb-sun { display: none; }
 .dmb-moon { display: inline; }
+.dmb-auto { display: none; }
 html.dark .dmb-moon { display: none; }
 html.dark .dmb-sun { display: inline; }
+html.theme-auto .dmb-moon { display: none; }
+html.theme-auto .dmb-sun { display: none; }
+html.theme-auto .dmb-auto { display: inline; }
 
 .nav-toggle {
     display: none;
