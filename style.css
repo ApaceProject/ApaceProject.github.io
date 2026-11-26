@@ -623,23 +623,8 @@ html.theme-auto .dmb-auto { display: inline; }
     margin-top: 12px;
 }
 
-.feat-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    color: var(--muted);
-    font-size: 0.78rem;
-    margin-top: 14px;
-}
-
-.feat-meta time { color: var(--lead); }
-
-.feat-meta .feat-refresh { margin-left: auto; }
-
 @media (max-width: 620px) {
     .feat-table .feat-name { white-space: normal; }
-    .feat-meta .feat-refresh { margin-left: 0; }
     .feat-donut-wrap { width: 160px; height: 160px; }
 }
 

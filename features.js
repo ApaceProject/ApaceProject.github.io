@@ -17,17 +17,17 @@
 
   // The ONLY status markers we recognize — GitHub :shortcode: form and
   // the raw emoji form, for resilience against either convention.
+  // ("Unclear" is intentionally not tracked — the table does not use it.)
   var MARKERS = [
-    { token: ':white_check_mark:', emoji: '\u2705', key: 'done',    label: 'Done',            color: '#3fb950' },
-    { token: ':construction:',     emoji: '\uD83D\uDEA7', key: 'wip',  label: 'In progress',     color: '#e3b341' },
-    { token: ':x:',                emoji: '\u274C', key: 'not',     label: 'Not implemented', color: '#f85149' },
-    { token: ':grey_question:',    emoji: '\u2754', key: 'unclear', label: 'Unclear',         color: '#9aa0a6' }
+    { token: ':white_check_mark:', emoji: '\u2705', key: 'done', label: 'Done',               color: '#3fb950' },
+    { token: ':construction:',     emoji: '\uD83D\uDEA7', key: 'wip',  label: 'Partly implemented', color: '#e3b341' },
+    { token: ':x:',                emoji: '\u274C', key: 'not', label: 'Not implemented',    color: '#f85149' }
   ];
 
   var RING_R = 52;                       // donut circle radius (viewBox 120)
   var CIRC = 2 * Math.PI * RING_R;       // circumference -> stroke-dasharray
 
-  var root, refreshBtn;
+  var root;
 
   function $(id) { return document.getElementById(id); }
 
@@ -113,7 +113,7 @@
   }
 
   function summarize(rows) {
-    var c = { done: 0, wip: 0, not: 0, unclear: 0 };
+    var c = { done: 0, wip: 0, not: 0 };
     rows.forEach(function (r) { c[r.status]++; });
     return {
       counts: c,
@@ -151,9 +151,9 @@
     var rows = data.rows;
     var s = summarize(rows);
     var aria = s.pct + '% done — ' + s.counts.done + ' of ' + s.total + ' features done, ' +
-      s.counts.wip + ' in progress, ' + s.counts.not + ' not implemented';
+      s.counts.wip + ' partly implemented, ' + s.counts.not + ' not implemented';
 
-    // legend line: "17 done · 3 in progress · 1 not implemented"
+    // legend line: "17 done · 3 partly implemented · 1 not implemented"
     var legendParts = [];
     for (var i = 0; i < MARKERS.length; i++) {
       var m = MARKERS[i];
@@ -190,21 +190,7 @@
       html += '<p class="feat-branch-note">Showing dev branch data &mdash; the main branch README could not be fetched.</p>';
     }
 
-    html += '' +
-      '<p class="feat-meta">Data fetched live from the README (branch: ' + escapeHtml(data.branch) + ')' +
-      ' &middot; last refresh <time id="featTime">' + currentTime() + '</time>' +
-      ' <button type="button" class="btn btn-sm btn-secondary feat-refresh" id="featRefresh">Refresh</button></p>';
-
     root.innerHTML = html;
-
-    refreshBtn = $('featRefresh');
-    if (refreshBtn) {
-      refreshBtn.addEventListener('click', function () { load(true); });
-    }
-  }
-
-  function renderLoading() {
-    root.innerHTML = '<div class="feat-msg"><p>Loading feature status from the README&hellip;</p></div>';
   }
 
   function renderError() {
@@ -213,22 +199,12 @@
         '<p>Could not load the live feature status &mdash; the README was unreachable.</p>' +
         '<p>You can read the full feature table directly on ' +
         '<a href="' + README_LINK + '" target="_blank" rel="noopener">GitHub &rarr; README.md</a>.</p>' +
-        '<button type="button" class="btn btn-sm btn-secondary feat-refresh" id="featRefresh">Try again</button>' +
       '</div>';
-    var btn = $('featRefresh');
-    if (btn) btn.addEventListener('click', function () { load(true); });
-  }
-
-  function currentTime() {
-    var d = new Date();
-    return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
   }
 
   /* ---------------- orchestration ---------------- */
 
-  function load(isRefresh) {
-    if (refreshBtn) { refreshBtn.disabled = true; }
-    if (isRefresh) renderLoading();
+  function load() {
     loadData()
       .then(render)
       .catch(function (err) {
@@ -242,14 +218,12 @@
     document.addEventListener('DOMContentLoaded', function () {
       root = $('featStatus');
       if (!root) return;
-      renderLoading();
-      window.addEventListener('load', function () { load(false); });
+      window.addEventListener('load', function () { load(); });
     });
   } else {
     root = $('featStatus');
     if (!root) return;
-    renderLoading();
-    if (document.readyState === 'complete') { load(false); }
-    else { window.addEventListener('load', function () { load(false); }); }
+    if (document.readyState === 'complete') { load(); }
+    else { window.addEventListener('load', function () { load(); }); }
   }
 })();
