@@ -59,7 +59,7 @@
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/minecraftfive-bold.ttf" crossorigin>
   <!-- The "What's implemented" section fetches the README from here at runtime -->
   <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
   <script>
     // Theme button — same mechanism as the Apace panel: html.dark class +
     // localStorage("darkMode"). Runs before first paint to avoid a flash.
@@ -255,6 +255,7 @@
         <p class="section-sub">
           Live status of every game feature the server implements — fetched
           straight from the project README, so this page never goes stale.
+          Green is done, yellow is in progress, red is not implemented.
         </p>
         <div class="feat-status" id="featStatus" aria-live="polite">
           <div class="feat-msg">
@@ -524,6 +525,6 @@
     })();
   </script>
   <!-- Live "What's implemented" section — deferred, never blocks render -->
-  <script src="features.js" defer></script>
+  <script src="features.js?v=2" defer></script>
 </body>
 </html>

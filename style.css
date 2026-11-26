@@ -494,51 +494,16 @@ html.theme-auto .dmb-auto { display: inline; }
 
 .feat-error { border-color: var(--border-accent); }
 
-/* Donut + bars grid */
-.feat-grid {
-    display: grid;
-    grid-template-columns: minmax(230px, 320px) 1fr;
-    gap: 18px;
-    align-items: stretch;
-    margin-bottom: 18px;
-}
+/* Colored donut — segments carry plain SVG stroke attributes, so the
+   chart renders identically in both palettes and never depends on CSS
+   variables or scroll-triggered animation. */
+.feat-donut-wrap { position: relative; width: 190px; height: 190px; margin: 14px auto 6px; }
 
-.feat-donut {
-    background: var(--surface);
-    border: 3px solid var(--border-accent);
-    box-shadow: var(--shadow-card);
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    text-align: center;
-}
+.feat-donut-wrap svg { display: block; width: 100%; height: 100%; }
 
-.feat-donut-wrap { position: relative; width: 168px; height: 168px; }
+.feat-donut-circle { fill: none; stroke-width: 14; }
 
-.feat-donut-svg { width: 100%; height: 100%; display: block; }
-
-.feat-donut-svg circle {
-    fill: none;
-    stroke-width: 11;
-    transform: rotate(-90deg);
-    transform-origin: 60px 60px;
-}
-
-.feat-donut-track { stroke: var(--track-bg); }
-
-.feat-donut-fill {
-    stroke: var(--accent);
-    filter: drop-shadow(0 0 4px rgba(139, 195, 74, 0.45));
-    stroke-linecap: butt;
-    stroke-dasharray: 326.73;
-    stroke-dashoffset: 326.73;              /* hidden until scrolled into view */
-    transition: stroke-dashoffset 1.2s ease-out 0.15s;
-}
-
-.feat-status.animate .feat-donut-fill { stroke-dashoffset: var(--o, 326.73); }
+.feat-donut-track { stroke: rgba(128, 128, 128, 0.22); }
 
 .feat-donut-center {
     position: absolute;
@@ -546,63 +511,76 @@ html.theme-auto .dmb-auto { display: inline; }
     display: grid;
     place-content: center;
     gap: 2px;
+    text-align: center;
     pointer-events: none;
 }
 
-.feat-pct {
-    color: var(--accent);
-    text-shadow: var(--glow);
-    font-size: 2.2rem;
-    line-height: 1;
-}
+.feat-pct { color: var(--text); font-size: 2.1rem; font-weight: 700; line-height: 1; }
 
 .feat-pct-label {
     color: var(--muted);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
 
-.feat-total {
+.feat-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 18px;
     color: var(--muted);
-    font-size: 0.8rem;
-    margin: 0;
+    font-size: 0.84rem;
+    margin: 4px 0 18px;
 }
 
-/* Status bars — reuses the .bar-row / .bar-track pattern from "Why Apace" */
-.feat-bars {
+.feat-legend .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: -1px;
+}
+
+/* Collapsible feature list — collapsed by default (native <details>) */
+.feat-details {
     background: var(--surface);
     border: 3px solid var(--border);
     box-shadow: var(--shadow-card);
-    padding: 22px 24px 18px;
-    display: grid;
-    gap: 12px;
-    align-content: center;
 }
 
-.feat-bars .bar-fill { width: 0; transition: width 0.9s ease-out 0.25s; }
-.feat-status.animate .feat-bars .bar-fill { width: var(--w, 0%); }
-
-.fstat-fill-done    { background: var(--accent); }
-.fstat-fill-wip     { background: #d9a520; }
-.fstat-fill-not     { background: #d95d5d; }
-.fstat-fill-unclear { background: var(--bar-alt); }
-
-.feat-bars-note {
-    color: var(--muted);
-    font-size: 0.8rem;
-    margin: 4px 0 0;
+.feat-details summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 13px 16px;
+    font-weight: 700;
+    color: var(--text);
 }
 
-/* Feature table */
-.feat-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--surface);
-    border: 3px solid var(--border);
-    box-shadow: var(--shadow-card);
-    font-size: 0.85rem;
+.feat-details summary::-webkit-details-marker { display: none; }
+
+.feat-details summary::after {
+    content: '+';
+    color: var(--accent);
+    font-size: 1.35rem;
+    line-height: 1;
+    transition: transform 0.15s ease;
 }
+
+.feat-details[open] summary::after { transform: rotate(45deg); }
+
+.feat-details[open] summary { border-bottom: 3px solid var(--border); }
+
+.feat-summary-hint { color: var(--muted); font-weight: 400; font-size: 0.8rem; }
+
+.feat-tablewrap { overflow-x: auto; }
+
+.feat-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 
 .feat-table thead th {
     text-align: left;
@@ -611,15 +589,16 @@ html.theme-auto .dmb-auto { display: inline; }
     color: var(--accent-soft);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    font-size: 0.72rem;
-    padding: 10px 14px;
+    font-size: 0.7rem;
+    padding: 9px 14px;
 }
 
 .feat-table tbody th,
 .feat-table tbody td {
-    padding: 9px 14px;
+    padding: 8px 14px;
     border-bottom: 2px solid var(--border);
     vertical-align: top;
+    text-align: left;
 }
 
 .feat-table tbody tr:last-child th,
@@ -627,31 +606,15 @@ html.theme-auto .dmb-auto { display: inline; }
 
 .feat-table tbody tr:hover { background: var(--icon-box-bg); }
 
-.feat-table .feat-name {
-    color: var(--text);
-    font-weight: 700;
-    white-space: nowrap;
-}
+.feat-name { color: var(--text); font-weight: 700; white-space: nowrap; }
 
-.feat-note { color: var(--muted); font-size: 0.8rem; }
+.feat-status-cell { white-space: nowrap; color: var(--muted); }
+
+.feat-emoji { margin-right: 8px; }
+
+.feat-note { color: var(--muted); font-size: 0.8rem; overflow-wrap: anywhere; }
 
 .feat-note-empty { color: var(--disclaimer); }
-
-/* Status badges */
-.fstat {
-    display: inline-block;
-    border: 2px solid var(--border);
-    padding: 1px 8px;
-    font-size: 0.72rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-.fstat.s-done    { border-color: var(--accent);        color: var(--accent); }
-.fstat.s-wip     { border-color: #d9a520;              color: #d9a520; }
-.fstat.s-not     { border-color: #d95d5d;              color: #d95d5d; }
-.fstat.s-unclear { border-color: var(--muted);         color: var(--muted); }
 
 /* Section footer: branch note + refresh */
 .feat-branch-note {
@@ -674,16 +637,10 @@ html.theme-auto .dmb-auto { display: inline; }
 
 .feat-meta .feat-refresh { margin-left: auto; }
 
-@media (max-width: 760px) {
-    .feat-grid { grid-template-columns: 1fr; }
-    .feat-donut { padding: 18px; }
-}
-
 @media (max-width: 620px) {
-    /* Compact table on phones: notes column collapses, tooltip carries them */
-    .feat-table .feat-col-notes { display: none; }
     .feat-table .feat-name { white-space: normal; }
     .feat-meta .feat-refresh { margin-left: 0; }
+    .feat-donut-wrap { width: 160px; height: 160px; }
 }
 
 /* ---------- Get started ---------- */
@@ -1085,6 +1042,4 @@ html.theme-auto .dmb-auto { display: inline; }
     html { scroll-behavior: auto; }
     .card, .btn { transition: none; }
     .card:hover { transform: none; }
-    .feat-bars .bar-fill { transition: none; width: var(--w, 0%); }
-    .feat-donut-fill { transition: none; stroke-dashoffset: var(--o, 326.73); }
 }
