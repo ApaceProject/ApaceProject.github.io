@@ -8,10 +8,10 @@
      muted #9a9ab0 · lead #b0b0b0
    ============================================================ */
 
-/* ---------- Fonts: same Minecraft Five faces the panel loads ---------- */
+/* ---------- Fonts: same Minecraft Five faces the panel loads (local) ---------- */
 @font-face {
     font-family: 'Minecraft';
-    src: url('https://sqlylxcnoqehorlgmztm.supabase.co/storage/v1/object/public/icons/fonts/minecraftfive-regular.ttf') format('truetype');
+    src: url('assets/fonts/minecraftfive-regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -19,7 +19,7 @@
 
 @font-face {
     font-family: 'Minecraft';
-    src: url('https://sqlylxcnoqehorlgmztm.supabase.co/storage/v1/object/public/icons/fonts/minecraftfive-bold.ttf') format('truetype');
+    src: url('assets/fonts/minecraftfive-bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -35,7 +35,7 @@
     --nav-bg: rgba(20, 20, 20, 0.92);
     --nav-mobile-bg: rgba(20, 20, 20, 0.98);
     --footer-bg: rgba(20, 20, 20, 0.95);
-    --bg-image: url('https://raw.githubusercontent.com/ApaceProject/Apace/main/src/Apace.LauncherUI/wwwroot/ApaceUI/Backgrounds/dark.png');
+    --bg-image: url('assets/backgrounds/dark.png');
     --btn-2: #39393B;
     --btn-2-hover: #47484A;
     --btn-2-active: #2A2B2C;
@@ -65,83 +65,45 @@
     --font: 'Minecraft', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* ---------- Light theme tokens ---------- */
-:root[data-theme="light"] {
-    --bg: #eef2e9;
-    --surface: #f7f9f4;
-    --surface-2: #e2e8da;
-    --panel-tint: rgba(255, 255, 255, 0.78);
-    --overlay: rgba(238, 242, 233, 0.68);
-    --nav-bg: rgba(247, 249, 244, 0.92);
-    --nav-mobile-bg: rgba(247, 249, 244, 0.98);
-    --footer-bg: rgba(242, 246, 237, 0.96);
-    --bg-image: url('https://raw.githubusercontent.com/ApaceProject/Apace/main/src/Apace.LauncherUI/wwwroot/ApaceUI/Backgrounds/light.png');
-    --btn-2: #dce2d5;
-    --btn-2-hover: #cdd6c3;
-    --btn-2-active: #bac6ae;
-    --btn-2-text: #1c2416;
-    --border: #b8c2ae;
-    --border-accent: #5e8229;
+/* ---------- Dusk theme (html.dark) — the Apace panel's alternate theme,
+   toggled by the same .dark class + localStorage("darkMode") as the panel ---------- */
+html.dark {
+    --bg: #2b3a1f;
+    --surface: #38492a;
+    --surface-2: #2f3d24;
+    --panel-tint: rgba(40, 54, 28, 0.92);
+    --overlay: rgba(20, 30, 10, 0.35);
+    --nav-bg: rgba(40, 54, 28, 0.95);
+    --nav-mobile-bg: rgba(40, 54, 28, 0.98);
+    --footer-bg: rgba(40, 54, 28, 0.95);
+    --bg-image: linear-gradient(rgba(20, 30, 10, 0.55), rgba(20, 30, 10, 0.55)),
+        url('assets/backgrounds/light.png');
+    --btn-2: #46562f;
+    --btn-2-hover: #566b39;
+    --btn-2-active: #354421;
+    --btn-2-text: #eef0e6;
+    --border: #5a6a3a;
+    --border-accent: #6a7a45;
     --primary: #3B8526;
     --primary-hover: #4B9736;
     --primary-active: #236212;
-    --accent: #2c6e18;
-    --accent-hover: #1d4d0e;
-    --accent-soft: #2e7319;
-    --hero-glow-word: #3b8526;
-    --text: #182012;
-    --text-body: #25301c;
-    --muted: #4b5743;
-    --lead: #36412e;
-    --disclaimer: #5c6854;
-    --icon-box-bg: rgba(59, 133, 38, 0.1);
-    --code-head-bg: rgba(0, 0, 0, 0.04);
-    --track-bg: rgba(0, 0, 0, 0.08);
-    --chip-bg: rgba(255, 255, 255, 0.75);
-    --bar-alt: #8f9986;
-    --glow: 0 2px 8px rgba(59, 133, 38, 0.22);
-    --shadow-card: 0 4px 0 #b8c2ae, 0 6px 16px rgba(24, 32, 18, 0.12);
-    --shadow-hero: 0 6px 0 #4a7822, 0 0 40px rgba(59, 133, 38, 0.14);
-}
-
-@media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-        --bg: #eef2e9;
-        --surface: #f7f9f4;
-        --surface-2: #e2e8da;
-        --panel-tint: rgba(255, 255, 255, 0.78);
-        --overlay: rgba(238, 242, 233, 0.68);
-        --nav-bg: rgba(247, 249, 244, 0.92);
-        --nav-mobile-bg: rgba(247, 249, 244, 0.98);
-        --footer-bg: rgba(242, 246, 237, 0.96);
-        --bg-image: url('https://raw.githubusercontent.com/ApaceProject/Apace/main/src/Apace.LauncherUI/wwwroot/ApaceUI/Backgrounds/light.png');
-        --btn-2: #dce2d5;
-        --btn-2-hover: #cdd6c3;
-        --btn-2-active: #bac6ae;
-        --btn-2-text: #1c2416;
-        --border: #b8c2ae;
-        --border-accent: #5e8229;
-        --primary: #3B8526;
-        --primary-hover: #4B9736;
-        --primary-active: #236212;
-        --accent: #2c6e18;
-        --accent-hover: #1d4d0e;
-        --accent-soft: #2e7319;
-        --hero-glow-word: #3b8526;
-        --text: #182012;
-        --text-body: #25301c;
-        --muted: #4b5743;
-        --lead: #36412e;
-        --disclaimer: #5c6854;
-        --icon-box-bg: rgba(59, 133, 38, 0.1);
-        --code-head-bg: rgba(0, 0, 0, 0.04);
-        --track-bg: rgba(0, 0, 0, 0.08);
-        --chip-bg: rgba(255, 255, 255, 0.75);
-        --bar-alt: #8f9986;
-        --glow: 0 2px 8px rgba(59, 133, 38, 0.22);
-        --shadow-card: 0 4px 0 #b8c2ae, 0 6px 16px rgba(24, 32, 18, 0.12);
-        --shadow-hero: 0 6px 0 #4a7822, 0 0 40px rgba(59, 133, 38, 0.14);
-    }
+    --accent: #cdeb8a;
+    --accent-hover: #d4ff7a;
+    --accent-soft: #cdeb8a;
+    --hero-glow-word: #d4ff7a;
+    --text: #eef0e6;
+    --text-body: #dfe4cd;
+    --muted: #a8b18a;
+    --lead: #cfd8be;
+    --disclaimer: #7d8660;
+    --icon-box-bg: rgba(206, 235, 138, 0.1);
+    --code-head-bg: rgba(0, 0, 0, 0.15);
+    --track-bg: rgba(0, 0, 0, 0.3);
+    --chip-bg: rgba(0, 0, 0, 0.25);
+    --bar-alt: #6a7a52;
+    --glow: 0 4px 12px rgba(206, 235, 138, 0.35);
+    --shadow-card: 0 6px 0 #1c2613, 0 8px 20px rgba(0, 0, 0, 0.3);
+    --shadow-hero: 0 6px 0 #24331a, 0 0 50px rgba(206, 235, 138, 0.12);
 }
 
 /* ---------- Base ---------- */
@@ -278,6 +240,36 @@ code {
 }
 .nav-links a.nav-github:hover { background: var(--btn-2-hover); color: var(--btn-2-text); }
 .nav-links a.nav-github svg { width: 16px; height: 16px; }
+
+/* ---------- Theme toggle button (copied from the panel's .theme-btn) ---------- */
+.theme-btn {
+    background: #3B8526;
+    color: #fff;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 4px 4px 8px 4px;
+    border-image: url('assets/button-accent-default.png') 4 4 8 4 / 4px 4px 8px 4px stretch;
+    padding: 0 10px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.1s;
+    margin-left: 8px;
+    line-height: 1;
+    border-radius: 0;
+    font-family: inherit;
+    font-weight: 700;
+}
+
+.theme-btn:hover { background: #4B9736; border-image-source: url('assets/button-accent-hover.png'); }
+.theme-btn:active { background: #236212; border-width: 4px; border-image: url('assets/checkbox-checked-pressed.png') 4 / 4px stretch; margin-top: 4px; }
+
+/* Sun/moon label swap — exactly like the panel's dark-mode button */
+.dmb-sun { display: none; }
+.dmb-moon { display: inline; }
+html.dark .dmb-moon { display: none; }
+html.dark .dmb-sun { display: inline; }
 
 .nav-toggle {
     display: none;
@@ -860,6 +852,12 @@ code {
         margin-left: 0;
         margin-top: 8px;
         justify-content: center;
+    }
+
+    .nav-links .theme-btn {
+        margin-left: 0;
+        margin-top: 8px;
+        align-self: center;
     }
 
     .hero { padding-top: 32px; }
