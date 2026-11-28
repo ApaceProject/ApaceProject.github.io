@@ -4,7 +4,7 @@
 
 This repo hosts the source of the **Apace landing page**, served at **https://ApaceProject.github.io**.
 
-[Apace](https://github.com/ApaceProject/Apace) is a community-made replacement server and client patcher for Minecraft Earth™, built on [Solace](https://github.com/Earth-Restored/Solace). Mojang switched the game's official servers off in June 2021, so the original app can no longer connect to anything — Apace lets you run your own server (in Docker, on a Raspberry Pi, or on an Android phone with the [mobile launcher](https://github.com/ApaceProject/Apace-Launcher)) and patch the original Android/iOS app to connect to it instead.
+[Apace](https://github.com/ApaceProject/Apace) is the easiest and fastest way to play Minecraft Earth™ again — a community-made replacement server and client patcher. Mojang switched the game's official servers off in June 2021, so the original app can no longer connect to anything — Apace lets you run your own server (in Docker, on a Raspberry Pi, or on an Android phone with the [mobile launcher](https://github.com/ApaceProject/Apace-Launcher)) and patch the original Android/iOS app to connect to it instead.
 
 This site is the project's static showcase: plain `index.html` + `style.css` (no build tooling, no frameworks), styled after the Apace launcher panel's dark Minecraft theme.
 
