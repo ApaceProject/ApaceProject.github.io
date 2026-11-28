@@ -892,6 +892,14 @@ html.theme-auto .dmb-auto { display: inline; }
     padding: 2px 10px;
 }
 
+/* Small footnote under the requirement chips (the RAM note) */
+.app-note {
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.45;
+    margin: -10px 0 18px;
+}
+
 .app-actions { justify-content: flex-start; }
 
 .host-block h3 {
